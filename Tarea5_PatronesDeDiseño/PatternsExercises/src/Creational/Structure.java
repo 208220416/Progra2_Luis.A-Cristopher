@@ -1,15 +1,14 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Creational;
 
 import java.util.Collection;
 
 /**
+ * @author Cristopher Monge Rodriguez B94986 y Luis Antonio Arguello Cubero
+ * B90619
  *
- * @author Alex Arguello
+ * To define a standard method to create an object, apart from a constructor,
+ * but the decision of what kind of an object to create is left to subclasses.
+ *
  */
 public abstract class Structure<T> {
 
@@ -27,9 +26,22 @@ public abstract class Structure<T> {
         this.collection = collection;
     }
 
+    /**
+     * Method that add a element in the structure
+     *
+     * @param element, contains the element added
+     */
     public abstract void add(T element);
 
+    /**
+     * Method that remove an element
+     */
     public abstract void remove();
 
+    /**
+     * Method that print the elements contained in the structure
+     *
+     * @return the elements
+     */
     public abstract String printContent();
 }

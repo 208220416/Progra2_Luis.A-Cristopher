@@ -1,19 +1,15 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Creational;
 
-
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Iterator;
-import java.util.List;
 
 /**
+ * @author Cristopher Monge Rodriguez B94986 y Luis Antonio Arguello Cubero
+ * B90619
  *
- * @author Alex Arguello
+ * To define a standard method to create an object, apart from a constructor,
+ * but the decision of what kind of an object to create is left to subclasses.
+ *
  */
 public class ArrayListStructure<T> extends Structure {
 
@@ -22,7 +18,6 @@ public class ArrayListStructure<T> extends Structure {
     public ArrayListStructure(ArrayList<T> arrayList) {
         super(arrayList);
         this.arrayList = arrayList;
-        
     }
 
     @Override
@@ -33,11 +28,9 @@ public class ArrayListStructure<T> extends Structure {
     @Override
     public void remove() {
         if (super.getCollection().isEmpty() == false) {
-            arrayList.remove(arrayList.size()-1);
+            arrayList.remove(arrayList.size() - 1);
         }
-       
-        }
-    
+    }
 
     @Override
     public String printContent() {
@@ -48,5 +41,4 @@ public class ArrayListStructure<T> extends Structure {
         }
         return text;
     }
-
 }
