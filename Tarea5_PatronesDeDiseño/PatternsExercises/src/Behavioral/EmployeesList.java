@@ -17,6 +17,7 @@ public class EmployeesList {
 
     public EmployeesList() {
         this.employeeList = new TreeMap<>();
+        this.sortingEmployees = new SortingEmployees();
     }
 
     /**
@@ -36,7 +37,7 @@ public class EmployeesList {
      */
     public String sortByAscendingId() {
         String text = "";
-        Employee[] arrayTemp = (Employee[]) employeeList.values().toArray();
+        Employee[] arrayTemp = employeeList.values().toArray(new Employee[employeeList.size()]);
         sortingEmployees.setSorter(new BubbleSortAscendingId());
         sortingEmployees.sortEmployees(arrayTemp);
         for (int i = 0; i < arrayTemp.length; i++) {
@@ -52,7 +53,7 @@ public class EmployeesList {
      */
     public String sortByAscendingLastName() {
         String text = "";
-        Employee[] arrayTemp = (Employee[]) employeeList.values().toArray();
+        Employee[] arrayTemp = employeeList.values().toArray(new Employee[employeeList.size()]);
         sortingEmployees.setSorter(new BubbleSortAscendingLastName());
         sortingEmployees.sortEmployees(arrayTemp);
         for (int i = 0; i < arrayTemp.length; i++) {
@@ -68,7 +69,7 @@ public class EmployeesList {
      */
     public String sortByDescendingSalary() {
         String text = "";
-        Employee[] arrayTemp = (Employee[]) employeeList.values().toArray();
+        Employee[] arrayTemp = employeeList.values().toArray(new Employee[employeeList.size()]);
         sortingEmployees.setSorter(new BubbleSortDescendingSalary());
         sortingEmployees.sortEmployees(arrayTemp);
         for (int i = 0; i < arrayTemp.length; i++) {

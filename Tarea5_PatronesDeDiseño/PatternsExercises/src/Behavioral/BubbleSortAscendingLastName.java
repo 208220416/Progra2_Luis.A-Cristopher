@@ -16,7 +16,7 @@ public class BubbleSortAscendingLastName implements SortInterface {
         String persona1 = "";
         String persona2 = "";
         for (int i = 0; i < list.length; i++) {
-            for (int j = 0; j < list.length - i; j++) {
+            for (int j = 0; j < list.length - 1; j++) {
                 persona1 = list[j].getFirstLastName() + " " + list[j].getSecondLastName()
                         + " " + list[j].getFirstName() + " " + list[j].getSecondName();
                 persona2 = list[j + 1].getFirstLastName() + " " + list[j + 1].getSecondLastName()

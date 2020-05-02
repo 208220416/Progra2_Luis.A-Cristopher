@@ -14,7 +14,7 @@ public class BubbleSortAscendingId implements SortInterface {
     public void sort(Employee[] list) {
         Employee aux;
         for (int i = 0; i < list.length; i++) {
-            for (int j = 0; j < list.length - i; j++) {
+            for (int j = 0; j < list.length - 1; j++) {
                 if (list[j].getId() > list[j + 1].getId()) {
                     aux = list[j];
                     list[j] = list[j + 1];

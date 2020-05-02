@@ -14,7 +14,7 @@ public class BubbleSortDescendingSalary implements SortInterface {
     public void sort(Employee[] list) {
         Employee aux;
         for (int i = 0; i < list.length; i++) {
-            for (int j = 0; j < list.length - i; j++) {
+            for (int j = 0; j < list.length - 1; j++) {
                 if (list[j].getSalary() < list[j + 1].getSalary()) {
                     aux = list[j];
                     list[j] = list[j + 1];
