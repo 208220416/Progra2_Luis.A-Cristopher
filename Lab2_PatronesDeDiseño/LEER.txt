@@ -1,0 +1,4 @@
+Laboratorio realizado por Cristopher Daniel Monge Rodriguez con carnet B94986 y Luis Antonio Arguello Cubero con carnet B90619.
+Este Laboratorio se realizo mediante el control de versiones de github.
+Link del projecto: https://github.com/208220416/Progra2_Luis.A-Cristopher.git
+Esta tarea se encuentra en la carpeta Lab2_PatronesDeDiseño que se encuentra en el repositorio indicado en la linea 3.
