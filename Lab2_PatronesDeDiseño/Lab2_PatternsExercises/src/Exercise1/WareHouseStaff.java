@@ -9,19 +9,19 @@ import java.util.Iterator;
  * @Version 1, 5 de Mayo del 2020.
  * @Autores Cristopher Daniel Monge Rodriguez y Luis Antonio Arguello Cubero.
  */
-public class WareHouseStaff implements Observer{
+public class WareHouseStaff implements Observer {
 
     TreeMap<Integer, StatusEnum> packageList;
 
     public WareHouseStaff() {
         packageList = new TreeMap<>();
     }
-        
+
     @Override
     public void updateInformation(Purchase purchase) {
-        if(packageList.containsKey(purchase.getConsecutive()) == true){
+        if (packageList.containsKey(purchase.getConsecutive()) == true) {
             packageList.replace(purchase.getConsecutive(), purchase.getStatus().getDescription());
-        }else{
+        } else {
             packageList.put(purchase.getConsecutive(), purchase.getStatus().getDescription());
         }
     }
@@ -31,12 +31,10 @@ public class WareHouseStaff implements Observer{
         Iterator<Integer> iteratorKeys = packageList.keySet().iterator();
         Iterator<StatusEnum> iteratorValues = packageList.values().iterator();
         String text = "";
-        while(iteratorKeys.hasNext()){
+        while (iteratorKeys.hasNext()) {
             text += "Consecutive: " + iteratorKeys.next() + ", Status: " + iteratorValues.next();
         }
         return text;
     }
-    
-    
-    
+
 }
