@@ -14,13 +14,14 @@ import java.util.Iterator;
 public class Purchase implements Comparable<Purchase> {
 
     private int consecutive;
-    private GregorianCalendar applicationDate;
-    private GregorianCalendar date;
+    private GregorianCalendar applicationDate;    
     private TreeMap<String, Product> productList;
     private Status status;
+    private Client client;
 
-    public Purchase() {
+    public Purchase(Client client) {
         productList = new TreeMap<>();
+        this.client = client;
     }
 
     public int getConsecutive() {
@@ -37,15 +38,7 @@ public class Purchase implements Comparable<Purchase> {
 
     public void setApplicationDate(GregorianCalendar applicationDate) {
         this.applicationDate = applicationDate;
-    }
-
-    public GregorianCalendar getDate() {
-        return date;
-    }
-
-    public void setDate(GregorianCalendar date) {
-        this.date = date;
-    }
+    }    
 
     public TreeMap<String, Product> getProductList() {
         return productList;
@@ -63,6 +56,14 @@ public class Purchase implements Comparable<Purchase> {
         this.status = status;
     }
 
+    public Client getClient() {
+        return client;
+    }
+
+    public void setClient(Client client) {
+        this.client = client;
+    }
+    
     /**
      * getDateInSimpleDateFormat method, it works to get date in the simple date
      * format
@@ -71,7 +72,7 @@ public class Purchase implements Comparable<Purchase> {
      */
     public String getDateInSimpleDateFormat() {
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yy – mm:ss:S");
-        String dateFormatted = simpleDateFormat.format(date.getTime());
+        String dateFormatted = simpleDateFormat.format(applicationDate.getTime());
         return dateFormatted;
     }
 
@@ -129,9 +130,9 @@ public class Purchase implements Comparable<Purchase> {
         Iterator<Product> iteratorValues = productList.values().iterator();
         Product productTemp = null;
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yy – mm:ss:S");
-        String dateFormatted = simpleDateFormat.format(date.getTime());
+        String dateFormatted = simpleDateFormat.format(applicationDate.getTime());
         resultado = "Purchase:\n" + "Consecutive = " + consecutive + "\nDate of the purchase = " + dateFormatted
-                + "\n" + status.toString() + "\n";
+                + "\n" + status.toString() + "\n" + client.toString() + "\n";
         while (iteratorValues.hasNext()) {
             productTemp = iteratorValues.next();
             resultado += productTemp + " - PesoGeneral: " + productTemp.calculateGeneralWeight() + "\n";

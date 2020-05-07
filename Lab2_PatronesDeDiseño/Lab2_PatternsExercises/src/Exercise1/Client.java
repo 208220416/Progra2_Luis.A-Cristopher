@@ -19,6 +19,7 @@ public class Client implements Observer {
         this.id = id;
         this.email = email;
         packageStatusList = new ArrayList<>();
+        packageStatusList.add(StatusEnum.PROCESS_WAITING);
     }
 
     public String getId() {
@@ -39,7 +40,12 @@ public class Client implements Observer {
 
     @Override
     public void updateInformation(Purchase purchase) {
-        packageStatusList.add(purchase.getStatus().getDescription());
+        if (purchase.getClient().getId() == id) {
+            if (packageStatusList.contains(purchase.getStatus().getDescription()) == false) {
+                packageStatusList.add(purchase.getStatus().getDescription());
+                System.err.println("Observer with id: " + id + ". Your information had been updated");
+            }
+        }
     }
 
     @Override

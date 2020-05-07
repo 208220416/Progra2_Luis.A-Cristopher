@@ -8,22 +8,17 @@ package Exercise1;
  */
 public class Shipment implements Sellable {
 
-    private Purchase purchase;
     private String additionalConditions;
     private double purchaseCost;
 
-    public Shipment(Purchase purchase, double purchaseCost) {
-        this.purchase = purchase;
-        this.purchaseCost = purchaseCost;
+    public Shipment() {
+        this.purchaseCost = 0;
         this.additionalConditions = "";
     }
 
-    public Purchase getPurchase() {
-        return purchase;
-    }
-
-    public void setPurchase(Purchase purchase) {
-        this.purchase = purchase;
+    public Shipment(double purchaseCost) {
+        this.purchaseCost = purchaseCost;
+        this.additionalConditions = "";
     }
 
     @Override
@@ -46,7 +41,7 @@ public class Shipment implements Sellable {
 
     @Override
     public String toString() {
-        return "Shipment{" + "purchase=" + purchase + ", additionalConditions=" + additionalConditions + ", purchaseCost=" + purchaseCost + '}';
+        return "   Shipment:\nAdditionalConditions:\n" + additionalConditions + "\nPurchaseCost:\n" + purchaseCost + "\n";
     }
 
 }

@@ -19,10 +19,15 @@ public class WareHouseStaff implements Observer {
 
     @Override
     public void updateInformation(Purchase purchase) {
-        if (packageList.containsKey(purchase.getConsecutive()) == true) {
-            packageList.replace(purchase.getConsecutive(), purchase.getStatus().getDescription());
+        System.err.println("Ware house staffs. Our information had been updated");
+        if (purchase.getStatus().getDescription() != StatusEnum.DELIVERED) {
+            if (packageList.containsKey(purchase.getConsecutive()) == true) {
+                packageList.replace(purchase.getConsecutive(), purchase.getStatus().getDescription());
+            } else {
+                packageList.put(purchase.getConsecutive(), purchase.getStatus().getDescription());
+            }
         } else {
-            packageList.put(purchase.getConsecutive(), purchase.getStatus().getDescription());
+            packageList.remove(purchase.getConsecutive());
         }
     }
 
@@ -32,7 +37,7 @@ public class WareHouseStaff implements Observer {
         Iterator<StatusEnum> iteratorValues = packageList.values().iterator();
         String text = "";
         while (iteratorKeys.hasNext()) {
-            text += "Consecutive: " + iteratorKeys.next() + ", Status: " + iteratorValues.next();
+            text += "Consecutive: " + iteratorKeys.next() + ", Status: " + iteratorValues.next() + "\n";
         }
         return text;
     }
