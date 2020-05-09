@@ -6,7 +6,7 @@ package Exercise2;
  * @Version 1, 8 de Mayo del 2020.
  * @Autores Cristopher Daniel Monge Rodriguez y Luis Antonio Arguello Cubero.
  */
-public class Circle extends Figure implements CloneInterface {
+public class Circle extends AbstractFigure {
 
     private Coordinates coordinateCentralPoint;
     private double radiusDistance;
@@ -33,12 +33,13 @@ public class Circle extends Figure implements CloneInterface {
         circle.setCoordinateCentralPoint(coordinateCentralPoint);
         circle.setRadiusDistance(radiusDistance);
         circle.setName(super.getName());
+        circle.setIdentation(super.getIdentation());
         return circle;
     }
 
     @Override
     public String list() {
-        return super.getIdentation() + super.getName() + "{" + coordinateCentralPoint.toString()
+        return super.getIdentation().getIdentation() + super.getName() + "{" + coordinateCentralPoint.toString()
                 + ", " + radiusDistance + "}\n";
     }
 

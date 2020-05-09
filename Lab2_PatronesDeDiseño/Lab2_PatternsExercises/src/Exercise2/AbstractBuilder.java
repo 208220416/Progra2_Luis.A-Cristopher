@@ -33,6 +33,6 @@ public interface AbstractBuilder {
      * @return the instance of the figure
      * @throws InformationRequiredException
      */
-    public Figure getFigure() throws InformationRequiredException;
+    public AbstractFigure getFigure() throws InformationRequiredException;
 
 }
