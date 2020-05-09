@@ -33,8 +33,17 @@ public class Mural extends AbstractFigure {
      * @param figure the figure added
      * @return the figure added
      */
-    public AbstractFigure addFigure(AbstractFigure figure) {
-        figures.add(figure);
+    public AbstractFigure addFigure(AbstractFigure figure) throws InformationRequiredException {
+        if (figure instanceof Mural) {
+            if (((Mural) figure).getFigures().size() > 1) {
+                figures.add(figure);
+            } else {
+                throw new InformationRequiredException("The mural sent as a "
+                        + "parameter must contain at least two figures to be added");
+            }
+        } else {
+            figures.add(figure);
+        }
         return figure;
     }
 
@@ -95,7 +104,7 @@ public class Mural extends AbstractFigure {
         AbstractFigure figureTemp = null;
         while (iterator.hasNext()) {
             figureTemp = (AbstractFigure) iterator.next();
-            muralClone.addFigure((AbstractFigure) figureTemp.cloneMethod());
+            muralClone.getFigures().add((AbstractFigure) figureTemp.cloneMethod());
         }
         return muralClone;
     }
