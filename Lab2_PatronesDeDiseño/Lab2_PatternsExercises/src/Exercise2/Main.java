@@ -80,5 +80,25 @@ public class Main {
         } catch (InformationRequiredException exc) {
             System.err.println(exc.getInformationRequired());
         }
+        try {
+            Thread.sleep(100);
+            Mural mural_4 = new Mural("Mural 4", identation1);
+            Rectangle rectangle4_1 = (Rectangle) factory1.createFigure("Rectangle", identation1, new Coordinates(4, 5), 44, 44, 0);
+            Circle circle4_2 = (Circle) factory1.createFigure("Circle", identation1, new Coordinates(2, 3), 0, 0, 6);
+            mural_4.addFigure(rectangle4_1);
+            mural_4.addFigure(circle4_2);
+            System.out.println("Creating...\n" + mural_4.list());
+            Thread.sleep(100);
+            Mural mural_5 = new Mural("Mural 5", identation1);
+            Rectangle rectangle5_1 = (Rectangle) factory1.createFigure("Rectangle", identation1, new Coordinates(4, 5), 40, 50, 0);
+            mural_5.addFigure(rectangle5_1);
+            System.out.println("Creating...\n" + mural_5.list());
+
+            System.out.println("Adding mural 5 in mural 4...");
+            mural_4.addFigure(mural_5);
+        } catch (InformationRequiredException exc) {
+            System.err.println(exc.getInformationRequired());
+        } catch (Exception e) {
+        }
     }
 }
